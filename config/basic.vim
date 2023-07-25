@@ -41,9 +41,10 @@ if has('syntax')
 	syntax on
 endif
 
-if has('autochdir')
-	set acd
-endif
+" It will make some plugins not work.
+" if has('autochdir')
+" 	set acd
+" endif
 
 set showmatch
 
@@ -55,7 +56,7 @@ set wildmenu
 
 set lazyredraw
 
-set errorformat+=[%f:%l]\ ->\ %m,[%f:%l]:%m
+set errorformat=%f:%l:%c:\ %t%*\\l:\ %m
 
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<
 

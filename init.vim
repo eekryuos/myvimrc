@@ -15,3 +15,5 @@ set rtp+=~/.vim
 LoadScript config/basic.vim
 
 LoadScript config/style.vim
+
+runtime! plugin/**/*.vim
