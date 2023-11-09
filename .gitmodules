@@ -1,0 +1,3 @@
+[submodule "plugin/LeaderF"]
+	path = plugin/LeaderF
+	url = https://github.com/Yggdroot/LeaderF.git
