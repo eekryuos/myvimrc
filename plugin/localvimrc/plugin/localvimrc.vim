@@ -18,11 +18,11 @@ export def g:LocalVimrcRun()
 		return
 	endif
 
-	var directory = fnameescape(expand("%:p:h"))
+	# var directory = fnameescape(expand("%:p:h"))
 	var rcfiles = []
-	for rcfile in findfile('.localvimrc', directory, -1)
+	for rcfile in findfile('.localvimrc', ';', -1)
 		if filereadable(rcfile)
-			LocalVimrcDebug("Localvimrc successful loaded '" .. rcfile .. "'")
+			LocalVimrcDebug("Localvimrc successfully loaded '" .. rcfile .. "'")
 			exec 'source' rcfile
 		endif
 	endfor
@@ -33,5 +33,5 @@ enddef
 defcompile
 
 augroup LocalVimRC
-	autocmd BufWinEnter * call LocalVimrcRun()
+	autocmd BufNewFile,BufWinEnter * call LocalVimrcRun()
 augroup END

@@ -13,8 +13,8 @@ noremap <C-h> <Left>
 noremap <C-j> <Down>
 noremap <C-k> <Up>
 inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
+" inoremap <C-j> <Down>
+" inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 
 " quick moving in the Command mode
@@ -24,7 +24,8 @@ cnoremap <C-k> <Up>
 cnoremap <C-l> <Right>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
-cnoremap <C-f> <C-d>
+" It may me crazy, history mode is more attartive.
+" cnoremap <C-f> <C-d>
 cnoremap <C-b> <Left>
 cnoremap <C-d> <Del>
 cnoremap <C-_> <C-k>
@@ -90,3 +91,9 @@ if has("gui_macvim")
 	inoremap <silent><d-9> <ESC>:tabn 9<cr>
 	inoremap <silent><d-0> <ESC>:tabn 10<cr>
 endif
+
+noremap <silent><leader>= <ESC>:Copilot panel<cr>
+inoremap <C-j> <Plug>(copilot-next)
+inoremap <C-k> <Plug>(copilot-previous)
+inoremap <C-]> <Plug>(copilot-dismiss)
+inoremap <C-\> <Plug>(copilot-suggest)

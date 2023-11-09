@@ -56,7 +56,11 @@ set wildmenu
 
 set lazyredraw
 
-set errorformat=%f:%l:%c:\ %t%*\\l:\ %m
+set efm^=%-G%f(%l):\ *WARNING*:\ identifier\ '%[%^']%#'%.%#
+set efm^=%-G%\\(--%\\)%\\?%\\d%\\{4%\\}-%\\d%\\{2%\\}-%\\d%\\{2%\\}\ %\\d%\\{2%\\}:%\\d%\\{2%\\}:\ %\\d%#%\\(--%\\)%\\?\ %.%#
+set efm^=%-G--%\\d%\\{4%\\}-%\\d%\\{2%\\}-%\\d%\\{2%\\}\ %\\d%\\{2%\\}\|%\\d%\\{2%\\}\|\ %\\d%\\{2%\\}--%.%#
+set efm^=%-GFINISHED\ --%.%#
+" set efm=%%E%[%^:]%#:\ In\ Function\ %.%#,%C%f:%l:%c:\ error:\ %m,%Z%p^
 
 set listchars=tab:\|\ ,trail:.,extends:>,precedes:<
 
@@ -76,9 +80,17 @@ if has('folding')
 	set foldlevel=99
 endif
 
+set foldmethod=manual
+
+if executable('rg')
+    set grepprg=rg\ --vimgrep\ --no-heading\ --hidden
+endif
+
 set modeline
 
 set modelines=3
+
+set complete=".,w,b,u,t"
 
 set suffixes=.bak,~,.o,.h,.info,.swp,.obj,.pyc,.pyo,.egg-info,.class
 
@@ -98,3 +110,5 @@ set wildignore+=*.ppt,*.pptx,*.docx,*.xlt,*.xls,*.xlsx,*.odt,*.wps
 set wildignore+=*.msi,*.crx,*.deb,*.vfd,*.apk,*.ipa,*.bin,*.msu
 set wildignore+=*.gba,*.sfc,*.078,*.nds,*.smd,*.smc
 set wildignore+=*.linux2,*.win32,*.darwin,*.freebsd,*.linux,*.android
+
+let g:copilot_proxy = '127.0.0.1:8888'

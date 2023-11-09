@@ -8,12 +8,8 @@ let s:home = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 
 command! -nargs=1 LoadScript exec 'so '.s:home.'/'.'<args>'
 
-exec 'set rtp+='.s:home
-
-set rtp+=~/.vim
-
 LoadScript config/basic.vim
 
 LoadScript config/style.vim
 
-runtime! plugin/**/*.vim
+LoadScript config/keymap.vim
