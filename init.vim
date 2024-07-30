@@ -8,6 +8,8 @@ let s:home = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 
 command! -nargs=1 LoadScript exec 'so '.s:home.'/'.'<args>'
 
+LoadScript config/option.vim
+
 LoadScript config/basic.vim
 
 LoadScript config/style.vim
