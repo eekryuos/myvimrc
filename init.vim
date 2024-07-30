@@ -13,3 +13,5 @@ LoadScript config/basic.vim
 LoadScript config/style.vim
 
 LoadScript config/keymap.vim
+
+LoadScript config/option.vim

@@ -95,8 +95,19 @@ if has("gui_macvim")
 	inoremap <silent><d-0> <ESC>:tabn 10<cr>
 endif
 
-noremap <silent><leader>= <ESC>:Copilot panel<cr>
-inoremap <M-]> <Plug>(copilot-next)
-inoremap <M-[> <Plug>(copilot-previous)
-inoremap <C-]> <Plug>(copilot-dismiss)
-inoremap <C-\> <Plug>(copilot-suggest)
+"Using Copilot
+"noremap <silent><leader>= <ESC>:Copilot panel<cr>
+"inoremap <M-]> <Plug>(copilot-next)
+"inoremap <M-[> <Plug>(copilot-previous)
+"inoremap <C-]> <Plug>(copilot-dismiss)
+"inoremap <C-\> <Plug>(copilot-suggest)
+
+"Using Codeium
+noremap <silent><leader>= <ESC>:Codeium panel<cr>
+inoremap <M-]> <Plug>(codeium-next)
+inoremap <M-[> <Plug>(codeium-previous)
+inoremap <C-]> <Plug>(codeium-dismiss)
+inoremap <C-\> <Plug>(codeium-suggest)
+
+nnoremap <Leader>q :<C-u>call feedkeys(':e ' . expand('%:.:r') . '.', 'n')<CR>
+nnoremap <leader>gf :e <cfile><cr>

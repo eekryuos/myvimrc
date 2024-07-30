@@ -52,9 +52,6 @@ EOF
 function create_init()
 {
 cat <<-EOF
-	let g:mapleader=" "
-	let g:lsp_diagnostics_enabled = 0
-	nnoremap <Leader>q :<C-u>call feedkeys(':e ' . expand('%:.:r') . '.', 'n')<CR>
 	set rtp+=~/.vim
 	so $PWD/init.vim
 EOF
@@ -146,5 +143,11 @@ cd $HOME/.vim/pack/run/start && {
         }
     done
 }
+
+for i in `find $HOME/.vim/pack -maxdepth 3 -mindepth 3 -type d`; do
+    [[ -d "$i/doc" ]] && {
+        vim -c ":helptags $i/doc | q"
+    }
+done
 
 # vim: set et sw=4 ts=4 sts=4:
