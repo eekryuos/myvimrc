@@ -9,8 +9,11 @@ inoremap <C-d> <Del>
 inoremap <C-_> <C-k>
 
 " Using CTRL+HJKL moving the course around
-noremap <C-h> <Left>
-noremap <C-j> <Down>
+noremap <C-h> :SidewaysLeft<cr>
+noremap <C-l> :SidewaysRight<cr>
+
+" noremap <C-h> <Left>
+" noremap <C-j> <Down>
 noremap <C-k> <Up>
 inoremap <C-h> <Left>
 " inoremap <C-j> <Down>
@@ -93,7 +96,7 @@ if has("gui_macvim")
 endif
 
 noremap <silent><leader>= <ESC>:Copilot panel<cr>
-inoremap <C-j> <Plug>(copilot-next)
-inoremap <C-k> <Plug>(copilot-previous)
+inoremap <M-]> <Plug>(copilot-next)
+inoremap <M-[> <Plug>(copilot-previous)
 inoremap <C-]> <Plug>(copilot-dismiss)
 inoremap <C-\> <Plug>(copilot-suggest)
