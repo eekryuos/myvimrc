@@ -10,6 +10,8 @@ command! -nargs=1 LoadScript exec 'so '.s:home.'/'.'<args>'
 
 LoadScript config/option.vim
 
+LoadScript config/lsp.vim
+
 LoadScript config/basic.vim
 
 LoadScript config/style.vim
