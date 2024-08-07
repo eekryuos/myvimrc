@@ -161,6 +161,14 @@ for i in `find $(pwd)/plugin -maxdepth 1 -mindepth 1 -type d`; do
     }
 done
 
+function config_git()
+{
+    echo "Configuring vim-dirdiff..."
+    git config --global alias.dirdiff 'difftool --ignore-submodules --dir-diff --symlinks --tool=vimdirdiff'
+    git config --global difftool.vimdirdiff.cmd "vim -f '+next' '+execute \"DirDiff\" argv(0) argv(1)' \$LOCAL \$REMOTE"
+    git config --global alias.fixup '!git commit --fixup=`git log -1 --pretty=format:%h -- "$1"` "$1"'
+}
+
 cd $HOME/.vim/pack/run/start && {
     for key in "${!plugins[@]}"; do
         [[ -d "$key" ]] || {
@@ -179,12 +187,5 @@ for i in `find $HOME/.vim/pack -maxdepth 3 -mindepth 3 -type d`; do
         vim -c ":helptags $i/doc | q"
     }
 done
-
-function config_git()
-{
-    git config --global alias.dirdiff 'difftool --ignore-submodules --dir-diff --symlinks --tool=vimdirdiff'
-    git config --global difftool.vimdirdiff.cmd "vim -f '+next' '+execute \"DirDiff\" argv(0) argv(1)' \$LOCAL \$REMOTE"
-    git config --global alias.fixup '!git commit --fixup=`git log -1 --pretty=format:%h -- "$1"` "$1"'
-}
 
 # vim: set et sw=4 ts=4 sts=4:
