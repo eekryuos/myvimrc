@@ -180,4 +180,11 @@ for i in `find $HOME/.vim/pack -maxdepth 3 -mindepth 3 -type d`; do
     }
 done
 
+function config_git()
+{
+    git config --global alias.dirdiff 'difftool --ignore-submodules --dir-diff --symlinks --tool=vimdirdiff'
+    git config --global difftool.vimdirdiff.cmd "vim -f '+next' '+execute \"DirDiff\" argv(0) argv(1)' \$LOCAL \$REMOTE"
+    git config --global alias.fixup '!git commit --fixup=`git log -1 --pretty=format:%h -- "$1"` "$1"'
+}
+
 # vim: set et sw=4 ts=4 sts=4:
